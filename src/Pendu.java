@@ -139,7 +139,7 @@ public class Pendu extends Application {
                  
         BorderPane banniere = new BorderPane();
         HBox listbutton = new HBox();   
-        banniere.setBackground(new Background(new BackgroundFill(Color.BLUE, new CornerRadii(0), Insets.EMPTY)));    
+        banniere.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, new CornerRadii(0), Insets.EMPTY)));    
 
         Label titre = new Label("jeu du pendu");
         titre.setPadding(new Insets(10));
@@ -262,19 +262,19 @@ public class Pendu extends Application {
         par.add(regledujeux, 0, 3,1,1);
 
 
-        this.min.setPadding(new Insets(10, 10, 10, 10));
+        this.min.setPadding(new Insets(10, 20, 10, 10));
         bmin.setPadding(new Insets(10, 10, 10, 10));
-        this.max.setPadding(new Insets(10, 10, 10, 10));
+
         bmax.setPadding(new Insets(10, 10, 10, 10));
-        this.error.setPadding(new Insets(10, 10, 10, 10));
+
         berreur.setPadding(new Insets(10, 10, 10, 10));
         regledujeux.setPadding(new Insets(10, 10, 10, 10));
 
         par.setMargin(this.min, new Insets(10, 10, 10, 10));
         par.setMargin(bmin, new Insets(10, 10, 10, 10));
-        par.setMargin(this.max, new Insets(10, 10, 10, 10));
+        //par.setMargin(this.max, new Insets(10, 10, 10, 10));
         par.setMargin(bmax, new Insets(10, 10, 10, 10));
-        par.setMargin(this.error, new Insets(10, 10, 10, 10));
+        //par.setMargin(this.error, new Insets(10, 10, 10, 10));
         par.setMargin(berreur, new Insets(10, 10, 10, 10));
         par.setMargin(regledujeux, new Insets(10, 10, 10, 10));
 
