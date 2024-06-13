@@ -1,0 +1,22 @@
+l'application est simple.
+
+Vous avez la possibilité dans l'accueil de choisir un niveau.
+Le niveau représente la difficulté à le trouver en fonction de celle-ci choisie. 
+Plusieurs lettres peuvent être révélées au début.
+
+Le bouton paramètre en haut tout à gauche sert à choisir 
+- le nombre minimal de lettre 
+- le nombre maximal de lettre
+- le nombre d'erreurs possible
+Et afficher une pop-up qui vous montre les règles rapidement
+
+Lorsqu'on se trouve sur la partie jeu 
+Nous pouvons appuyer sur le clavier pour choisir une lettre une fois faite, la lettre est bloquée.
+Et découvre la lettre dans ce mot ou fais avancer le pendu avec l'image
+
+Une barre de progression vous montre sur là globaliter des erreur permis ou vous en êtes.
+Si vous appuyez sur nouveau mot un pop-up, vous demande si vous voulez continuer
+
+Le chrono n'a pas été implémenté.
+
+Si vous gagnez ou perdez vous avais un pop-up qui vous le dit
