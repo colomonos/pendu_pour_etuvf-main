@@ -183,7 +183,7 @@ public class Pendu extends Application {
 
     // /**
      // * @return la fenêtre de jeu avec le mot crypté, l'image, la barre
-     // *         de progression et le clavier
+     // *         de progression et le clavier 
 
      private Pane fenetreJeu(){
         // A implementer
@@ -199,14 +199,14 @@ public class Pendu extends Application {
         Vb.getChildren().addAll(this.leNiveau,Timercase,NouveauMoT);
         
         
-        TilePane j = this.clavier;
+        TilePane clav = this.clavier;
         
-        Vbc.getChildren().addAll(this.dessin,this.pg,j);
+        Vbc.getChildren().addAll(this.dessin,this.pg,clav);
 
 
         bordcentre.setCenter(Vbc);
-        bordcentre.setTop(motCrypte);
-        bordcentre.setBottom(clavier);
+        bordcentre.setTop(this.motCrypte);
+        bordcentre.setBottom(clav);
 
         bordcentre.setRight(Vb);
 
@@ -411,6 +411,15 @@ public class Pendu extends Application {
         
     }
 
+
+    public void rinit(){
+        int niveau = this.modelePendu.getNiveau();
+        this.modelePendu = new MotMystere("/usr/share/dict/french", 3, 10, niveau, 10);
+        ControleurLettres controleurL = new ControleurLettres(this.modelePendu,this);
+        this.clavier = new Clavier("abcdefghijklmnopqrstuvwxyz",controleurL);
+    }
+
+
     /**
      * raffraichit l'affichage selon les données du modèle
      */
@@ -433,8 +442,9 @@ public class Pendu extends Application {
         if (restant == 0) {this.dessin.setImage(this.lesImages.get(10));                    this.pg.setProgress(1);}
 
 
-        this.motCrypte .setText(this.modelePendu.getMotCrypte());
-
+        this.motCrypte.setText(this.modelePendu.getMotCrypte());
+        System.out.println(this.motCrypte);
+        
 
         if (this.modelePendu.perdu()) {
             popperdu();

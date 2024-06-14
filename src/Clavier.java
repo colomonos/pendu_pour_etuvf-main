@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle ;
+import javafx.scene.shape.Ellipse;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -35,15 +37,18 @@ public class Clavier extends TilePane {
         
         this.clavier = new ArrayList<>();
 
-        for (int i=0 ; i<touches.length() ; i++){
-            String lettre = String.valueOf(touches.charAt(i));
+         for (char touche : touches.toCharArray()) {
             Circle cercle = new Circle(10);
+            Button button = new Button(String.valueOf(touche));
+            button.setOnAction(actionTouches);
             cercle.setFill(Color.RED);
-            Button b = new Button(lettre,cercle);
-            this.clavier.add(b);
+            button.setShape(cercle);
+            clavier.add(button);
+            this.getChildren().add(button);
         }
-
     }
+
+    
 
 
 

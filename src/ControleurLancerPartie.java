@@ -40,14 +40,16 @@ public class ControleurLancerPartie implements EventHandler<ActionEvent> {
         if (Textboutton == "lancer partie") {
             Optional<ButtonType> reponse = this.vuePendu.popUpLancerPartie().showAndWait(); // on lance la fenêtre popup et on attends la réponse
             // si la réponse est oui
-        if (reponse.isPresent() && reponse.get().equals(ButtonType.YES)){
-
+        if (reponse.isPresent() && reponse.get().equals(ButtonType.YES)){ 
+            this.vuePendu.majAffichage();
             this.vuePendu.lancePartie();
+            
             System.out.println("Ok !");
         }
         else{
             System.out.println("D'ac !");
         }
+        
 
         }
         if ((Textboutton == "Nouveau mot")) {
@@ -55,13 +57,17 @@ public class ControleurLancerPartie implements EventHandler<ActionEvent> {
         {Optional<ButtonType> reponse = this.vuePendu.popUpPartieEnCours().showAndWait();
         // si la réponse est oui
         if (reponse.isPresent() && reponse.get().equals(ButtonType.YES)){
-            
+            this.vuePendu.rinit();
+            this.vuePendu.majAffichage();
             this.vuePendu.lancePartie();
+            
             System.out.println("Ok !");
         }
         else{
             System.out.println("D'ac !");
         }}
+
+        
         }
         
     }
