@@ -254,4 +254,7 @@ public class MotMystere {
                " nombre d'essais restents: "+this.nbErreursRestantes;
     }
 
+    public String getStringNiveaux(String niv){
+        return niv;
+    }
 }

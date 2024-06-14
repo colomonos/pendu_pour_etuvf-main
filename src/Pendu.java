@@ -175,11 +175,14 @@ public class Pendu extends Application {
     // /**
      // * @return le panel du chronomètre
      // */
-    // private TitledPane leChrono(){
+  private TitledPane leChrono(){
         // A implementer
-        // TitledPane res = new TitledPane();
-        // return res;
-    // }
+        this.chrono = new Chronometre();   
+        this.chrono.start();
+        TitledPane res = new TitledPane("Chronomètre", this.chrono);
+        res.setCollapsible(false);        
+        return res;
+       }
 
     // /**
      // * @return la fenêtre de jeu avec le mot crypté, l'image, la barre
@@ -191,12 +194,12 @@ public class Pendu extends Application {
         this.dessin.setImage(this.lesImages.get(0));
         VBox Vb =new VBox();
         VBox Vbc =new VBox();
-        TitledPane Timercase = new TitledPane("Chronometre",this.chrono);
+        
         ControleurLancerPartie lancer =new ControleurLancerPartie(this.modelePendu, this);
 
         Button NouveauMoT = new Button("Nouveau mot");
         NouveauMoT.setOnAction(lancer);
-        Vb.getChildren().addAll(this.leNiveau,Timercase,NouveauMoT);
+        Vb.getChildren().addAll(this.leNiveau,this.leChrono(),NouveauMoT);
         
         
         TilePane clav = this.clavier;

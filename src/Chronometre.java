@@ -33,7 +33,13 @@ public class Chronometre extends Text{
      */
     public Chronometre(){
         // A implémenter
-
+        this.setText("0:0");
+        actionTemps = new ControleurChronometre(this);
+        keyFrame = new KeyFrame(Duration.seconds(1), actionTemps);
+        this.keyFrame= new KeyFrame(Duration.millis(1), this.actionTemps);
+        // Initialize the Timeline with indefinite cycle count
+        this.timeline = new Timeline(this.keyFrame);
+        this.timeline.setCycleCount(Animation.INDEFINITE);
 
     }
 
@@ -44,6 +50,10 @@ public class Chronometre extends Text{
      */
     public void setTime(long tempsMillisec){
         // A implémenter
+        long elapsedSeconds = tempsMillisec / 1000;
+        long minutes = elapsedSeconds / 60;
+        long seconds = elapsedSeconds % 60;
+        this.setText(minutes + ":" + seconds);
     }
 
     /**
@@ -51,6 +61,7 @@ public class Chronometre extends Text{
      */
     public void start(){
         // A implémenter
+        timeline.play();
     }
 
     /**
@@ -58,6 +69,7 @@ public class Chronometre extends Text{
      */
     public void stop(){
         // A implémenter
+        timeline.stop();
     }
 
     /**
@@ -65,5 +77,9 @@ public class Chronometre extends Text{
      */
     public void resetTime(){
         // A implémenter
+        stop();
+        super.setText("0:0");
+        // setTime(0);
+        this.actionTemps.reset();
     }
 }
